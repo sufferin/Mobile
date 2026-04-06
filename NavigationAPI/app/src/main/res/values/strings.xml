@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Identity Profile</string>
+    <string name="title_profile">Your Profile</string>
+    <string name="title_details">Personal Details</string>
+    <string name="title_navigation">Explore Sections</string>
+    <string name="title_settings">Settings</string>
+    <string name="title_info">About Identity</string>
+    <string name="title_final">Final Overview</string>
+    
+    <string name="btn_to_details">View Details</string>
+    <string name="btn_to_nav">Go to Nav Hub</string>
+    <string name="btn_to_settings">Open Settings</string>
+    <string name="btn_to_info">Identity Info</string>
+    <string name="btn_to_final">Go to End</string>
+    <string name="btn_back">Go Back</string>
+</resources>
