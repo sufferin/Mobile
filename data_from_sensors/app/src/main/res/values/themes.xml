@@ -1,0 +1,16 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.Data_from_sensors" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <item name="colorPrimary">@color/purple_header</item>
+        <item name="colorSecondary">@color/cyan_selection</item>
+        <item name="android:windowBackground">@color/app_background</item>
+        <item name="android:statusBarColor">@color/purple_header</item>
+        <item name="android:windowLightStatusBar">false</item>
+        
+        <!-- Style for radio buttons -->
+        <item name="colorControlActivated">@color/cyan_selection</item>
+    </style>
+
+    <style name="Theme.Data_from_sensors" parent="Base.Theme.Data_from_sensors" />
+</resources>
