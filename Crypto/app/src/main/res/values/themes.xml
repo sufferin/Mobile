@@ -1,0 +1,14 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.Crypto" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <item name="colorPrimary">@color/purple_primary</item>
+        <item name="colorSecondary">@color/purple_secondary</item>
+        <item name="android:windowBackground">@color/lavender_bg</item>
+        <item name="android:textColorPrimary">@color/text_primary</item>
+        <item name="android:statusBarColor">@color/lavender_bg</item>
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+
+    <style name="Theme.Crypto" parent="Base.Theme.Crypto" />
+</resources>
