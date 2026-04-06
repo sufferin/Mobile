@@ -1,0 +1,13 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.WorkManager" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <item name="colorPrimary">@color/navy_primary</item>
+        <item name="colorSecondary">@color/lavender_card</item>
+        <item name="android:windowBackground">#FFFFFF</item>
+        <item name="android:statusBarColor">@color/navy_primary</item>
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+
+    <style name="Theme.WorkManager" parent="Base.Theme.WorkManager" />
+</resources>
