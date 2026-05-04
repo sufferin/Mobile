@@ -58,6 +58,7 @@ dependencies {
     implementation(libs.androidx.swiperefreshlayout)
     implementation(libs.hilt.android)
     implementation(libs.hilt.navigation.compose)
+    implementation(libs.material)
     ksp(libs.hilt.compiler)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

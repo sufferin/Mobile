@@ -21,6 +21,7 @@ sealed class ScreenState {
         val holidays: List<HolidayUiModel>,
         val isLoadingMore: Boolean,
         val hasMorePages: Boolean,
-        val currentPage: Int
+        val currentPage: Int,
+        val selectedCategory: com.student.task.domain.model.HolidayCategory? = null
     ) : ScreenState()
 }

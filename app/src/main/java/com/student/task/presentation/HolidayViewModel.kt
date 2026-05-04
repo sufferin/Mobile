@@ -2,6 +2,7 @@ package com.student.task.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.student.task.domain.model.HolidayCategory
 import com.student.task.domain.usecase.GetHolidaysPageUseCase
 import com.student.task.presentation.model.CardState
 import com.student.task.presentation.model.HolidayUiModel
@@ -24,6 +25,9 @@ class HolidayViewModel @Inject constructor(
     private var totalCount = 0
     private val allHolidays = mutableListOf<HolidayUiModel>()
 
+    private val _selectedCategory = MutableStateFlow<HolidayCategory?>(null)
+    val selectedCategory: StateFlow<HolidayCategory?> = _selectedCategory.asStateFlow()
+
     init {
         loadInitial()
     }
@@ -38,12 +42,7 @@ class HolidayViewModel @Inject constructor(
                     allHolidays.clear()
                     allHolidays.addAll(holidays.map { HolidayUiModel(it) })
                     currentPage = 0
-                    _screenState.value = ScreenState.Data(
-                        holidays = allHolidays.toList(),
-                        isLoadingMore = false,
-                        hasMorePages = allHolidays.size < totalCount,
-                        currentPage = currentPage
-                    )
+                    updateState()
                 },
                 onFailure = { error ->
                     _screenState.value = ScreenState.Error(
@@ -65,12 +64,7 @@ class HolidayViewModel @Inject constructor(
                 onSuccess = { holidays ->
                     currentPage++
                     allHolidays.addAll(holidays.map { HolidayUiModel(it) })
-                    _screenState.value = ScreenState.Data(
-                        holidays = allHolidays.toList(),
-                        isLoadingMore = false,
-                        hasMorePages = allHolidays.size < totalCount,
-                        currentPage = currentPage
-                    )
+                    updateState()
                 },
                 onFailure = { error ->
                     _screenState.value = current.copy(isLoadingMore = false)
@@ -79,48 +73,56 @@ class HolidayViewModel @Inject constructor(
         }
     }
 
+    private fun updateState() {
+        val filter = _selectedCategory.value
+        val filteredHolidays = if (filter == null) {
+            allHolidays
+        } else {
+            allHolidays.filter { it.holiday.category == filter }
+        }
+
+        _screenState.value = ScreenState.Data(
+            holidays = filteredHolidays.toList(),
+            isLoadingMore = false,
+            hasMorePages = allHolidays.size < totalCount,
+            currentPage = currentPage,
+            selectedCategory = filter
+        )
+    }
+
+    fun filterByCategory(category: HolidayCategory?) {
+        _selectedCategory.value = category
+        updateState()
+    }
+
     fun retry() {
         loadInitial()
     }
 
     fun toggleCardState(holidayId: Int) {
-        val current = _screenState.value
-        if (current !is ScreenState.Data) return
-
-        val updatedList = allHolidays.map { uiModel ->
-            if (uiModel.holiday.id == holidayId) {
-                val newState = when (uiModel.cardState) {
-                    CardState.Default -> CardState.Expanded
-                    CardState.Expanded -> CardState.Default
-                    CardState.Favorite -> CardState.Favorite
-                }
-                uiModel.copy(cardState = newState)
-            } else {
-                uiModel
+        val index = allHolidays.indexOfFirst { it.holiday.id == holidayId }
+        if (index != -1) {
+            val uiModel = allHolidays[index]
+            val newState = when (uiModel.cardState) {
+                CardState.Default -> CardState.Expanded
+                CardState.Expanded -> CardState.Default
+                CardState.Favorite -> CardState.Favorite
             }
+            allHolidays[index] = uiModel.copy(cardState = newState)
+            updateState()
         }
-        allHolidays.clear()
-        allHolidays.addAll(updatedList)
-        _screenState.value = current.copy(holidays = updatedList)
     }
 
     fun toggleFavorite(holidayId: Int) {
-        val current = _screenState.value
-        if (current !is ScreenState.Data) return
-
-        val updatedList = allHolidays.map { uiModel ->
-            if (uiModel.holiday.id == holidayId) {
-                val newState = when (uiModel.cardState) {
-                    CardState.Favorite -> CardState.Default
-                    else -> CardState.Favorite
-                }
-                uiModel.copy(cardState = newState)
-            } else {
-                uiModel
+        val index = allHolidays.indexOfFirst { it.holiday.id == holidayId }
+        if (index != -1) {
+            val uiModel = allHolidays[index]
+            val newState = when (uiModel.cardState) {
+                CardState.Favorite -> CardState.Default
+                else -> CardState.Favorite
             }
+            allHolidays[index] = uiModel.copy(cardState = newState)
+            updateState()
         }
-        allHolidays.clear()
-        allHolidays.addAll(updatedList)
-        _screenState.value = current.copy(holidays = updatedList)
     }
 }

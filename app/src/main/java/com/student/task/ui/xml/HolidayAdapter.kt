@@ -68,31 +68,52 @@ class HolidayAdapter(
 
         fun bind(uiModel: HolidayUiModel) {
             val holiday = uiModel.holiday
+            val isExpanded = uiModel.cardState == CardState.Expanded
+            val isFavorite = uiModel.cardState == CardState.Favorite
 
             binding.emojiText.text = holiday.category.emoji
             binding.categoryBadge.text = holiday.category.displayName
             binding.holidayName.text = holiday.name
             binding.holidayDate.text = holiday.date
+            binding.holidayDescription.text = holiday.description
             binding.officialBadge.visibility = if (holiday.isOfficial) View.VISIBLE else View.GONE
 
             binding.cardRoot.setOnClickListener {
+                android.transition.TransitionManager.beginDelayedTransition(binding.cardRoot as ViewGroup)
                 onCardClick(holiday.id)
             }
 
-            when (uiModel.cardState) {
-                CardState.Default -> {
-                    bindDefault()
-                }
-                CardState.Expanded -> {
-                    bindDefault()
-                }
-                CardState.Favorite -> {
-                    bindDefault()
-                }
+            binding.favoriteButton.setOnClickListener {
+                onFavoriteClick(holiday.id)
             }
-        }
 
-        private fun bindDefault() {}
+            // Expanded State
+            binding.holidayDescription.visibility = if (isExpanded) View.VISIBLE else View.GONE
+            binding.expandIndicator.animate()
+                .rotation(if (isExpanded) 180f else 0f)
+                .setDuration(300)
+                .start()
+
+            // Favorite State
+            val favoriteIcon = if (isFavorite) {
+                android.R.drawable.btn_star_big_on
+            } else {
+                android.R.drawable.btn_star_big_off
+            }
+            binding.favoriteButton.setImageResource(favoriteIcon)
+
+            val backgroundColor = if (isFavorite) {
+                android.graphics.Color.parseColor("#FFF9C4") // Light Yellow
+            } else if (isExpanded) {
+                android.graphics.Color.parseColor("#F5F5F5") // Light Gray
+            } else {
+                android.graphics.Color.WHITE
+            }
+            binding.cardRoot.setCardBackgroundColor(backgroundColor)
+            
+            val elevation = if (isFavorite) 8f else 4f
+            binding.cardRoot.cardElevation = elevation * binding.root.resources.displayMetrics.density
+        }
 
     }
 

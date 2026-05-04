@@ -11,6 +11,8 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.chip.Chip
+import com.student.task.domain.model.HolidayCategory
 import com.student.task.databinding.FragmentHolidayXmlBinding
 import com.student.task.presentation.HolidayViewModel
 import com.student.task.presentation.ScreenState
@@ -42,7 +44,43 @@ class HolidayXmlFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupRecyclerView()
+        setupSwipeRefresh()
+        setupFilters()
+        setupRetryButton()
         observeState()
+    }
+
+    private fun setupSwipeRefresh() {
+        binding.swipeRefresh.setOnRefreshListener {
+            viewModel.retry()
+        }
+    }
+
+    private fun setupFilters() {
+        HolidayCategory.entries.forEach { category ->
+            val chip = Chip(requireContext())
+            chip.text = "${category.emoji} ${category.displayName}"
+            chip.isCheckable = true
+            chip.id = View.generateViewId()
+            chip.tag = category
+            binding.filterChipGroup.addView(chip)
+        }
+
+        binding.filterChipGroup.setOnCheckedStateChangeListener { group, checkedIds ->
+            val checkedId = checkedIds.firstOrNull()
+            val category = if (checkedId != null && checkedId != binding.chipAll.id) {
+                group.findViewById<Chip>(checkedId).tag as HolidayCategory
+            } else {
+                null
+            }
+            viewModel.filterByCategory(category)
+        }
+    }
+
+    private fun setupRetryButton() {
+        binding.retryButton.setOnClickListener {
+            viewModel.retry()
+        }
     }
 
     private fun setupRecyclerView() {
@@ -67,7 +105,11 @@ class HolidayXmlFragment : Fragment() {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.screenState.collect { state ->
                     when (state) {
-                        is ScreenState.Loading -> showLoading()
+                        is ScreenState.Loading -> {
+                            if (!binding.swipeRefresh.isRefreshing) {
+                                showLoading()
+                            }
+                        }
                         is ScreenState.Error -> showError(state.message)
                         is ScreenState.Data -> showData(state)
                     }
@@ -77,25 +119,35 @@ class HolidayXmlFragment : Fragment() {
     }
 
     private fun showLoading() {
-        binding.recyclerView.visibility = View.GONE
+        binding.swipeRefresh.visibility = View.GONE
         binding.errorLayout.visibility = View.GONE
+        binding.emptyLayout.visibility = View.GONE
         binding.loadingLayout.visibility = View.VISIBLE
     }
 
     private fun showError(message: String) {
-        binding.recyclerView.visibility = View.GONE
+        binding.swipeRefresh.isRefreshing = false
+        binding.swipeRefresh.visibility = View.GONE
         binding.loadingLayout.visibility = View.GONE
+        binding.emptyLayout.visibility = View.GONE
         binding.errorLayout.visibility = View.VISIBLE
 
         binding.errorMessage.text = message
     }
 
     private fun showData(state: ScreenState.Data) {
+        binding.swipeRefresh.isRefreshing = false
         binding.loadingLayout.visibility = View.GONE
         binding.errorLayout.visibility = View.GONE
-        binding.recyclerView.visibility = View.VISIBLE
-
-        adapter.submitHolidays(state.holidays, state.isLoadingMore)
+        
+        if (state.holidays.isEmpty()) {
+            binding.swipeRefresh.visibility = View.GONE
+            binding.emptyLayout.visibility = View.VISIBLE
+        } else {
+            binding.emptyLayout.visibility = View.GONE
+            binding.swipeRefresh.visibility = View.VISIBLE
+            adapter.submitHolidays(state.holidays, state.isLoadingMore)
+        }
     }
 
     override fun onDestroyView() {

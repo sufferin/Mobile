@@ -1,0 +1,228 @@
+--- START LOG 05.05.2026  2:10:28,98 --- 
+[1/5] Checking Git... 
+git version 2.45.1.windows.1
+[2/5] Cloning... 
+Cloning into 'C:\Users\ekons\AppData\Local\Temp\mobile_repo_321'...
+[3/5] Preparing subfolder... 
+[4/5] Copying files... 
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows
+-------------------------------------------------------------------------------
+
+  Начало: 5 мая 2026 г. 2:10:30
+    Источник : K:\Projects\StudentTask\
+  Назначение : C:\Users\ekons\AppData\Local\Temp\mobile_repo_321\StudentTask\
+
+     Файлы: *.*
+	    
+Исключенные файлы: push_student_task.bat
+	    test_write.txt
+	    local.properties
+	    git_log.txt
+	    
+ Исключенные папки: .git
+	    .gradle
+	    .kotlin
+	    build
+	    .idea
+	    
+ Параметры: *.* /S /E /DCOPY:DA /COPY:DAT /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+	                  12	K:\Projects\StudentTask\
+	    Новый файл		      19	.gitattributes 19%  100%  
+	    Новый файл		     446	.gitignore 84%  100%  
+	    Новый файл		     358	build.gradle.kts 81%  100%  
+	    Новый файл		     851	gradle.properties 91%  100%  
+	    Новый файл		    8728	gradlew 99%  100%  
+	    Новый файл		    2843	gradlew.bat 97%  100%  
+	    Новый файл		    3945	README.md 98%  100%  
+	    Новый файл		     628	settings.gradle.kts 88%  100%  
+	 Новая папка       3	K:\Projects\StudentTask\app\
+	    Новый файл		       6	.gitignore  7%  100%  
+	    Новый файл		    2248	build.gradle.kts 96%  100%  
+	    Новый файл		     750	proguard-rules.pro 90%  100%  
+	 Новая папка       0	K:\Projects\StudentTask\app\src\
+	 Новая папка       0	K:\Projects\StudentTask\app\src\androidTest\
+	 Новая папка       0	K:\Projects\StudentTask\app\src\androidTest\java\
+	 Новая папка       0	K:\Projects\StudentTask\app\src\androidTest\java\com\
+	 Новая папка       0	K:\Projects\StudentTask\app\src\androidTest\java\com\student\
+	 Новая папка       1	K:\Projects\StudentTask\app\src\androidTest\java\com\student\task\
+	    Новый файл		     659	ExampleInstrumentedTest.kt 89%  100%  
+	 Новая папка       1	K:\Projects\StudentTask\app\src\main\
+	    Новый файл		    1040	AndroidManifest.xml 92%  100%  
+	 Новая папка       0	K:\Projects\StudentTask\app\src\main\java\
+	 Новая папка       0	K:\Projects\StudentTask\app\src\main\java\com\
+	 Новая папка       0	K:\Projects\StudentTask\app\src\main\java\com\student\
+	 Новая папка       3	K:\Projects\StudentTask\app\src\main\java\com\student\task\
+	    Новый файл		     142	App.kt 64%  100%  
+	    Новый файл		    1656	MainActivity.kt 95%  100%  
+	    Новый файл		   14124	Task.kt 99%  100%  
+	 Новая папка       0	K:\Projects\StudentTask\app\src\main\java\com\student\task\data\
+	 Новая папка       1	K:\Projects\StudentTask\app\src\main\java\com\student\task\data\datasource\
+	    Новый файл		   10245	HolidayLocalDataSource.kt 99%  100%  
+	 Новая папка       1	K:\Projects\StudentTask\app\src\main\java\com\student\task\data\repository\
+	    Новый файл		    1022	HolidayRepositoryImpl.kt 92%  100%  
+	 Новая папка       1	K:\Projects\StudentTask\app\src\main\java\com\student\task\di\
+	    Новый файл		    1032	AppModule.kt 92%  100%  
+	 Новая папка       0	K:\Projects\StudentTask\app\src\main\java\com\student\task\domain\
+	 Новая папка       2	K:\Projects\StudentTask\app\src\main\java\com\student\task\domain\model\
+	    Новый файл		     252	Holiday.kt 76%  100%  
+	    Новый файл		     330	HolidayCategory.kt 80%  100%  
+	 Новая папка       1	K:\Projects\StudentTask\app\src\main\java\com\student\task\domain\repository\
+	    Новый файл		     240	HolidayRepository.kt 75%  100%  
+	 Новая папка       1	K:\Projects\StudentTask\app\src\main\java\com\student\task\domain\usecase\
+	    Новый файл		     517	GetHolidaysPageUseCase.kt 86%  100%  
+	 Новая папка       2	K:\Projects\StudentTask\app\src\main\java\com\student\task\presentation\
+	    Новый файл		    4367	HolidayViewModel.kt 98%  100%  
+	    Новый файл		     711	ScreenState.kt 90%  100%  
+	 Новая папка       2	K:\Projects\StudentTask\app\src\main\java\com\student\task\presentation\model\
+	    Новый файл		     454	CardState.kt 85%  100%  
+	    Новый файл		     195	HolidayUiModel.kt 71%  100%  
+	 Новая папка       0	K:\Projects\StudentTask\app\src\main\java\com\student\task\ui\
+	 Новая папка       2	K:\Projects\StudentTask\app\src\main\java\com\student\task\ui\compose\
+	    Новый файл		    8454	HolidayCard.kt 99%  100%  
+	    Новый файл		   12275	HolidayComposeScreen.kt 99%  100%  
+	 Новая папка       3	K:\Projects\StudentTask\app\src\main\java\com\student\task\ui\theme\
+	    Новый файл		     280	Color.kt 77%  100%  
+	    Новый файл		    1623	Theme.kt 95%  100%  
+	    Новый файл		     985	Type.kt 92%  100%  
+	 Новая папка       2	K:\Projects\StudentTask\app\src\main\java\com\student\task\ui\xml\
+	    Новый файл		    5477	HolidayAdapter.kt 98%  100%  
+	    Новый файл		    5534	HolidayXmlFragment.kt 98%  100%  
+	 Новая папка       0	K:\Projects\StudentTask\app\src\main\res\
+	 Новая папка       3	K:\Projects\StudentTask\app\src\main\res\drawable\
+	    Новый файл		     221	bg_category_badge.xml 73%  100%  
+	    Новый файл		    5606	ic_launcher_background.xml 98%  100%  
+	    Новый файл		    1702	ic_launcher_foreground.xml 95%  100%  
+	 Новая папка       5	K:\Projects\StudentTask\app\src\main\res\layout\
+	    Новый файл		     235	activity_main_xml.xml 74%  100%  
+	    Новый файл		    5523	fragment_holiday_xml.xml 98%  100%  
+	    Новый файл		    4995	item_holiday_card.xml 98%  100%  
+	    Новый файл		     659	item_loading_more.xml 89%  100%  
+	    Новый файл		     541	shimmer_item_holiday.xml 87%  100%  
+	 Новая папка       2	K:\Projects\StudentTask\app\src\main\res\mipmap-anydpi\
+	    Новый файл		     343	ic_launcher.xml 81%  100%  
+	    Новый файл		     343	ic_launcher_round.xml 81%  100%  
+	 Новая папка       2	K:\Projects\StudentTask\app\src\main\res\mipmap-hdpi\
+	    Новый файл		    1404	ic_launcher.webp 94%  100%  
+	    Новый файл		    2898	ic_launcher_round.webp 97%  100%  
+	 Новая папка       2	K:\Projects\StudentTask\app\src\main\res\mipmap-mdpi\
+	    Новый файл		     982	ic_launcher.webp 92%  100%  
+	    Новый файл		    1772	ic_launcher_round.webp 95%  100%  
+	 Новая папка       2	K:\Projects\StudentTask\app\src\main\res\mipmap-xhdpi\
+	    Новый файл		    1900	ic_launcher.webp 96%  100%  
+	    Новый файл		    3918	ic_launcher_round.webp 98%  100%  
+	 Новая папка       2	K:\Projects\StudentTask\app\src\main\res\mipmap-xxhdpi\
+	    Новый файл		    2884	ic_launcher.webp 97%  100%  
+	    Новый файл		    5914	ic_launcher_round.webp 98%  100%  
+	 Новая папка       2	K:\Projects\StudentTask\app\src\main\res\mipmap-xxxhdpi\
+	    Новый файл		    3844	ic_launcher.webp 97%  100%  
+	    Новый файл		    7778	ic_launcher_round.webp 98%  100%  
+	 Новая папка       3	K:\Projects\StudentTask\app\src\main\res\values\
+	    Новый файл		     378	colors.xml 82%  100%  
+	    Новый файл		      78	strings.xml 49%  100%  
+	    Новый файл		     159	themes.xml 66%  100%  
+	 Новая папка       2	K:\Projects\StudentTask\app\src\main\res\xml\
+	    Новый файл		     478	backup_rules.xml 85%  100%  
+	    Новый файл		     308	data_extraction_rules.xml 79%  100%  
+	 Новая папка       0	K:\Projects\StudentTask\app\src\test\
+	 Новая папка       0	K:\Projects\StudentTask\app\src\test\java\
+	 Новая папка       0	K:\Projects\StudentTask\app\src\test\java\com\
+	 Новая папка       0	K:\Projects\StudentTask\app\src\test\java\com\student\
+	 Новая папка       1	K:\Projects\StudentTask\app\src\test\java\com\student\task\
+	    Новый файл		     340	ExampleUnitTest.kt 81%  100%  
+	 Новая папка       2	K:\Projects\StudentTask\gradle\
+	    Новый файл		    1138	gradle-daemon-jvm.properties 93%  100%  
+	    Новый файл		    3163	libs.versions.toml 97%  100%  
+	 Новая папка       2	K:\Projects\StudentTask\gradle\wrapper\
+	    Новый файл		   45457	gradle-wrapper.jar 99%  100%  
+	    Новый файл		     369	gradle-wrapper.properties 82%  100%  
+
+------------------------------------------------------------------------------
+
+               ВсегоСкопировано ПропущеноНесоответствие      СБОЙДополнения
+Каталогов :        50        44         6         0         0         0
+  Файлов :        68        64         4         0         0         0
+    Байт :   195.4 k   193.1 k     2.3 k         0         0         0
+   Время :   0:00:00   0:00:00                       0:00:00   0:00:00
+
+
+Скорость :           2 247 340 Байт/сек.
+Скорость :             128,594 МБ/мин.
+   Окончание: 5 мая 2026 г. 2:10:30
+
+[5/5] Pushing... 
+[main 0d1ebe4] Add StudentTask folder
+ 64 files changed, 3075 insertions(+)
+ create mode 100644 StudentTask/.gitattributes
+ create mode 100644 StudentTask/.gitignore
+ create mode 100644 StudentTask/README.md
+ create mode 100644 StudentTask/app/.gitignore
+ create mode 100644 StudentTask/app/build.gradle.kts
+ create mode 100644 StudentTask/app/proguard-rules.pro
+ create mode 100644 StudentTask/app/src/androidTest/java/com/student/task/ExampleInstrumentedTest.kt
+ create mode 100644 StudentTask/app/src/main/AndroidManifest.xml
+ create mode 100644 StudentTask/app/src/main/java/com/student/task/App.kt
+ create mode 100644 StudentTask/app/src/main/java/com/student/task/MainActivity.kt
+ create mode 100644 StudentTask/app/src/main/java/com/student/task/Task.kt
+ create mode 100644 StudentTask/app/src/main/java/com/student/task/data/datasource/HolidayLocalDataSource.kt
+ create mode 100644 StudentTask/app/src/main/java/com/student/task/data/repository/HolidayRepositoryImpl.kt
+ create mode 100644 StudentTask/app/src/main/java/com/student/task/di/AppModule.kt
+ create mode 100644 StudentTask/app/src/main/java/com/student/task/domain/model/Holiday.kt
+ create mode 100644 StudentTask/app/src/main/java/com/student/task/domain/model/HolidayCategory.kt
+ create mode 100644 StudentTask/app/src/main/java/com/student/task/domain/repository/HolidayRepository.kt
+ create mode 100644 StudentTask/app/src/main/java/com/student/task/domain/usecase/GetHolidaysPageUseCase.kt
+ create mode 100644 StudentTask/app/src/main/java/com/student/task/presentation/HolidayViewModel.kt
+ create mode 100644 StudentTask/app/src/main/java/com/student/task/presentation/ScreenState.kt
+ create mode 100644 StudentTask/app/src/main/java/com/student/task/presentation/model/CardState.kt
+ create mode 100644 StudentTask/app/src/main/java/com/student/task/presentation/model/HolidayUiModel.kt
+ create mode 100644 StudentTask/app/src/main/java/com/student/task/ui/compose/HolidayCard.kt
+ create mode 100644 StudentTask/app/src/main/java/com/student/task/ui/compose/HolidayComposeScreen.kt
+ create mode 100644 StudentTask/app/src/main/java/com/student/task/ui/theme/Color.kt
+ create mode 100644 StudentTask/app/src/main/java/com/student/task/ui/theme/Theme.kt
+ create mode 100644 StudentTask/app/src/main/java/com/student/task/ui/theme/Type.kt
+ create mode 100644 StudentTask/app/src/main/java/com/student/task/ui/xml/HolidayAdapter.kt
+ create mode 100644 StudentTask/app/src/main/java/com/student/task/ui/xml/HolidayXmlFragment.kt
+ create mode 100644 StudentTask/app/src/main/res/drawable/bg_category_badge.xml
+ create mode 100644 StudentTask/app/src/main/res/drawable/ic_launcher_background.xml
+ create mode 100644 StudentTask/app/src/main/res/drawable/ic_launcher_foreground.xml
+ create mode 100644 StudentTask/app/src/main/res/layout/activity_main_xml.xml
+ create mode 100644 StudentTask/app/src/main/res/layout/fragment_holiday_xml.xml
+ create mode 100644 StudentTask/app/src/main/res/layout/item_holiday_card.xml
+ create mode 100644 StudentTask/app/src/main/res/layout/item_loading_more.xml
+ create mode 100644 StudentTask/app/src/main/res/layout/shimmer_item_holiday.xml
+ create mode 100644 StudentTask/app/src/main/res/mipmap-anydpi/ic_launcher.xml
+ create mode 100644 StudentTask/app/src/main/res/mipmap-anydpi/ic_launcher_round.xml
+ create mode 100644 StudentTask/app/src/main/res/mipmap-hdpi/ic_launcher.webp
+ create mode 100644 StudentTask/app/src/main/res/mipmap-hdpi/ic_launcher_round.webp
+ create mode 100644 StudentTask/app/src/main/res/mipmap-mdpi/ic_launcher.webp
+ create mode 100644 StudentTask/app/src/main/res/mipmap-mdpi/ic_launcher_round.webp
+ create mode 100644 StudentTask/app/src/main/res/mipmap-xhdpi/ic_launcher.webp
+ create mode 100644 StudentTask/app/src/main/res/mipmap-xhdpi/ic_launcher_round.webp
+ create mode 100644 StudentTask/app/src/main/res/mipmap-xxhdpi/ic_launcher.webp
+ create mode 100644 StudentTask/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.webp
+ create mode 100644 StudentTask/app/src/main/res/mipmap-xxxhdpi/ic_launcher.webp
+ create mode 100644 StudentTask/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.webp
+ create mode 100644 StudentTask/app/src/main/res/values/colors.xml
+ create mode 100644 StudentTask/app/src/main/res/values/strings.xml
+ create mode 100644 StudentTask/app/src/main/res/values/themes.xml
+ create mode 100644 StudentTask/app/src/main/res/xml/backup_rules.xml
+ create mode 100644 StudentTask/app/src/main/res/xml/data_extraction_rules.xml
+ create mode 100644 StudentTask/app/src/test/java/com/student/task/ExampleUnitTest.kt
+ create mode 100644 StudentTask/build.gradle.kts
+ create mode 100644 StudentTask/gradle.properties
+ create mode 100644 StudentTask/gradle/gradle-daemon-jvm.properties
+ create mode 100644 StudentTask/gradle/libs.versions.toml
+ create mode 100644 StudentTask/gradle/wrapper/gradle-wrapper.jar
+ create mode 100644 StudentTask/gradle/wrapper/gradle-wrapper.properties
+ create mode 100644 StudentTask/gradlew
+ create mode 100644 StudentTask/gradlew.bat
+ create mode 100644 StudentTask/settings.gradle.kts
+remote: Permission to sufferin/Mobile.git denied to KROKODILCHIK234.
+fatal: unable to access 'https://github.com/sufferin/Mobile.git/': The requested URL returned error: 403
+ERROR: Push failed 
+FAILED 
+--- END LOG --- 
